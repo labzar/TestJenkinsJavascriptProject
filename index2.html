@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html ng-app='store'>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"></script>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+	<h1 style='text-align:center'>Salam world : Road to AngularJs</h1>
+	<div ng-controller="StoreController as store">
+
+		<div class="list-group-item" ng-repeat="product in store.products">
+	<!-- using ng-include to creat custom template -->
+			<!-- <h3 ng-include="'template/product-title.html'" class="ng-scope">
+				<span class="ng-scope ng-binding">Awesome Multi-touch Keyboard</span>
+				<em class="pull-right ng-scope ng-binding">$250.00</em>
+			</h3> -->
+			<h3 product-title></h3>
+
+			<p>{{product.description}}</p>
+			<img ng-src="{{product.images[0].full}}"/>
+			<button ng-show="product.canPurchase"> Add to Cart </button>
+
+			<product-panels>
+
+			</product-panels>
+		</div>
+	</div>
+</body>
+</html>
